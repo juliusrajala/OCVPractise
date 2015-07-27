@@ -27,6 +27,7 @@ mask = np.zeros_like(old_frame)
 
 while(1):
     ret, frame = cap.read()
+    frame = cv2.flip(frame, 1)
     frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     #Calculating optical flow

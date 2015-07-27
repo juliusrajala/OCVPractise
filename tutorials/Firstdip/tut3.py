@@ -2,7 +2,7 @@
 import numpy as np
 import cv2
 
-cap = cv2.VideoCapture('output1.avi')
+cap = cv2.VideoCapture(0)
 
 #Getting the first frame of the video
 ret,frame = cap.read()
@@ -10,7 +10,7 @@ ret,frame = cap.read()
 #initial hardcoded values for location
 # järjestys: etäisyys vasen yläkulma = r, korkean sivun pituus = h
 #
-r,h,c,w = 150,50,400,50
+r,h,c,w = 150,50,150,50
 track_window = (c,r,w,h)
 
 #Setting up range of interest for tracking
@@ -62,7 +62,7 @@ while(1):
 
         dst = cv2.calcBackProject([hsv], [0], roi_hist, [0,180],1)
 
-            #apply meanshift to get new location
+        #apply meanshift to get new location
         ret, track_window = cv2.CamShift(dst, track_window, term_crit)
 
         # x,y,w,h = track_window
