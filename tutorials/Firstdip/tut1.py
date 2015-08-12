@@ -8,10 +8,10 @@ while(True):
     ret, frame = cap.read()
 
     #Turning video to grayscale
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     #displaying resulting frame
-    cv2.imshow("frame", gray)
+    cv2.imshow("frame", frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 

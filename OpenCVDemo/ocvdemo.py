@@ -1,9 +1,11 @@
-import numpy as np
+﻿import numpy as np
 import cv2
 import time
 from matplotlib import pyplot as plt
-from pytify import Spotify
-spotify = Spotify()
+# from pytify import spotify
+
+# global spotify
+# spotify = Spotify()
 
 def quit(self):
 	global vid
@@ -51,7 +53,6 @@ keyPresses = {
 
 def calculateBoxContent(img, spot):
 	global totHits
-	global spotify
 	count = 0
 	for x in range(0,75):
 		for y in range(0,75):
@@ -59,11 +60,10 @@ def calculateBoxContent(img, spot):
 				count+=1
 	if count > 2000:
 		totHits +=1
-		spotify.next()
+		# spotify.next()
 		print "Box tapped at: " + spot
 		# print "Box tapped "+ str(totHits) +" times!"
-	elif count > 2000 and spot[0] == "r":
-		print "Next song"
+
 		
 
 #function checks if the screen simply flashes white to avoid mishits
